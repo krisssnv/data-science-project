@@ -9,7 +9,7 @@ This Jupyter Notebook implements a 2D-CNN using **PyTorch** for multi-class clas
 ## Data handling
 
 
-        Organize your dataset into separate folders for each class, with images stored inside their respective class directories. For example:
+Organize your dataset into separate folders for each class, with images stored inside their respective class directories. For example:
 
         ```
         dataset/
@@ -26,7 +26,7 @@ This Jupyter Notebook implements a 2D-CNN using **PyTorch** for multi-class clas
             └── ...
         ```
 
-        Each subfolder under `dataset/` should be named after the class label and contain all images belonging to that class.
+Each subfolder under `dataset/` should be named after the class label and contain all images belonging to that class.
 
 Then the `split_data()` function divides your dataset into training, validation, and test sets, with custom ratios. 
 
@@ -35,10 +35,12 @@ Data is then transformed using `torchvision.transforms` to include resizing (to 
 ## Model architecture
 
 The model is based on a modified ResNet-50 architecture, which is adapted for image classification tasks. The model includes:
-- **Transfer Learning**: Uses a pre-trained ResNet-50 model, allowing the model to use learned features from a large dataset.
-- **Final Fully Connected Layer**: The final layer is replaced with a fully connected layer that matches the number of classes in your dataset. There is added dropout.
+- Transfer Learning - Uses a pre-trained ResNet-50 model, allowing the model to use learned features from a large dataset.
+- Final Fully Connected Layer- The final layer is replaced with a fully connected layer that matches the number of classes in your dataset. There is added dropout.
 
 By default the model is configured to use a grayscale input, by averaging out the weights in the first layer across the 3 channels, but this can be changed by setting `grayscale=False` in the configuration.
+
+The model is defined in the class SpectrogramResNet50. It takes the number of classes as an argument and initializes the ResNet-50 model with the appropriate modifications. Other parameters such as dropout rate and optimizer type can also be configured.
 
 ## Model Configuration
 Model configurations can be adjusted to optimize performance. The following parameters can be modified:
@@ -70,5 +72,4 @@ The model's performance is evaluated on the test set, and the results are printe
 - pandas
 - numpy
 - matplotlib
-
 
