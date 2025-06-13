@@ -3,10 +3,16 @@
 - 'vision_transformer.ipynb' – main notebook containing data loading, model implementation, training, and evaluation using vision transformer
 - 'Spectrograms_resnet.ipynb' – main notebook containing data loading, model implementation, training, and evaluation using 2D CNN
 - 'melspectrograms/' – folder containing input spectrogram images in '.png' format
+- 'preprocessing.ipynb' - notebook containing creating the melspectrograms
 - 'README.md' – project documentation
 
-# Spectrogram Image Classification with ResNet-50 (PyTorch)
+# Preprocessing
+In the given notebook, you can find the code for creating both spectrograms and melspectrograms from audio data, as well as filtering out the unwanted files. To be able to run the code, you will need to download the records from the following source:
+https://figshare.com/articles/dataset/Synthetic_vowels_of_speakers_with_Parkinson_s_disease_and_Parkinsonism/7628819
 
+and change all the paths accordingly. We ultimately decided to train our models only on the melspectrograms.
+
+# Spectrogram Image Classification with ResNet-50 (PyTorch)
 ## Overview
 
 This Jupyter Notebook implements a 2D-CNN using **PyTorch** for multi-class classification of **spectrogram images**. It makes use of  **transfer learning** with a modified **ResNet-50** architecture.
