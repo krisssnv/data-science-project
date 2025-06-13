@@ -1,3 +1,10 @@
+## Repository Structure
+
+- 'vision_transformer.ipynb' – main notebook containing data loading, model implementation, training, and evaluation using vision transformer
+- 'Spectrograms_resnet.ipynb' – main notebook containing data loading, model implementation, training, and evaluation using 2D CNN
+- 'melspectrograms/' – folder containing input spectrogram images in '.png' format
+- 'README.md' – project documentation
+
 # Spectrogram Image Classification with ResNet-50 (PyTorch)
 
 ## Overview
@@ -73,3 +80,64 @@ The model's performance is evaluated on the test set, and the results are printe
 - numpy
 - matplotlib
 
+# Parkinson’s Diagnosis from Speech using Vision Transformers
+
+## Overview
+
+This project applies a Vision Transformer (ViT) model to classify spectrograms of sustained vowel phonation in order to distinguish between:
+
+- Healthy Controls (HC)
+- Parkinson’s Disease (PD)
+- Parkinsonism (MSA and PSP grouped together)
+
+The model operates on 128x128 grayscale spectrogram images and tracks attention weights during inference for interpretability.
+
+## Model
+
+Architecture: Vision Transformer (ViT)  
+Input: 128x128 grayscale spectrograms  
+Patch size: 16  
+Embedding dimension: 128  
+Transformer layers: 4  
+Attention heads: 4  
+Output classes: 3 (HC, PD, Parkinsonism)
+
+## Data Format
+
+File names must follow this convention:
+[Group][SubjectID][Vowel][Repetition].png
+
+Examples:
+
+- 'PD03a1.png' — Parkinson’s Disease, subject 03, vowel /A/, repetition 1
+- 'HC11i2.png' — Healthy Control, subject 11, vowel /I/, repetition 2
+
+Class labels:
+
+- HC → 0  
+- PD → 1  
+- MSA, PSP → 2 (combined as Parkinsonism)
+
+## Requirements
+- Python 3.x
+- PyTorch
+- torchvision
+- scikit-learn
+- pandas
+- numpy
+- matplotlib
+
+## Usage
+- Place spectrogram files in the melspectrograms/ directory.
+- Open the notebook parkinsons_vit_classifier.ipynb in Jupyter.
+- Run all cells to train the model and evaluate it.
+
+# The notebook performs:
+-80/20 train-test split
+- Training loop with accuracy and loss logging
+- Evaluation with confusion matrix and classification report
+
+# Output
+- Accuracy and loss per epoch
+- Confusion matrix using seaborn
+- Classification report (precision, recall, F1-score)
