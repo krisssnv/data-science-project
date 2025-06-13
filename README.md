@@ -3,6 +3,7 @@
 - 'vision_transformer.ipynb' – main notebook containing data loading, model implementation, training, and evaluation using vision transformer
 - 'Spectrograms_resnet.ipynb' – main notebook containing data loading, model implementation, training, and evaluation using 2D CNN
 - 'melspectrograms/' – folder containing input spectrogram images in '.png' format
+- 'splits/' - folder containing the train/test split of melspectrograms used to train the Vision Transformer
 - 'preprocessing.ipynb' - notebook containing creating the melspectrograms
 - 'README.md' – project documentation
 
@@ -137,6 +138,8 @@ Class labels:
 - Place spectrogram files in the melspectrograms/ directory.
 - Open the notebook parkinsons_vit_classifier.ipynb in Jupyter.
 - Run all cells to train the model and evaluate it.
+
+- For replicability reasons, the train/test split that was used is included and can be used instead of the random split
 
 # The notebook performs:
 -80/20 train-test split
